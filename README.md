@@ -81,7 +81,7 @@ CUDA_VISIBLE_DEVICES=0 python eval.py
 
 ### Visualize character-wise mask map
 Examples of the visualization of mask_c:
-![image](https://github.com/wangyuxin87/ContourNet/blob/master/demo/display.png)
+![image](https://github.com/wangyuxin87/VisionLAN/blob/main/examples/mask_c.png)
 ```bash 
    CUDA_VISIBLE_DEVICES=0 python visualize.py
 ```
@@ -93,7 +93,8 @@ benchmarks (IC13, IC15, IIIT5K, SVT, SVTP and CT) containing 4832 images. Images
 and heavy degrees mean that we occlude the character using one or two lines. For each image, we randomly choose one degree to only cover one character.
 
 Examples of images in OST dataset:
-![image](https://github.com/wangyuxin87/ContourNet/blob/master/demo/display.png)
+![image](https://github.com/wangyuxin87/VisionLAN/blob/main/examples/OST_weak.png)
+![image](https://github.com/wangyuxin87/VisionLAN/blob/main/examples/OST_heavy.png)
 
 |        Methods       	           |        IIIT5K       	| IC13       	| SVT        	|
 |:------------------:              |:------------------:	|:---------:	|:------:   	|
