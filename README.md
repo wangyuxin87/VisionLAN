@@ -96,7 +96,7 @@ Examples of images in OST dataset:
 ![image](https://github.com/wangyuxin87/VisionLAN/blob/main/examples/OST_weak.png)
 ![image](https://github.com/wangyuxin87/VisionLAN/blob/main/examples/OST_heavy.png)
 
-|        Methods       	           |        IIIT5K       	| IC13       	| SVT        	|
+|        Methods       	           |        Average       	| Weak       	| Heavy        	|
 |:------------------:              |:------------------:	|:---------:	|:------:   	|
 |        Paper       	           |         60.3           |    70.3   	|     50.3   	|
 |        This implementation       | 	     60.3           |    70.8  	    |     49.8   	|
