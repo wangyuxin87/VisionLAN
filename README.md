@@ -13,6 +13,7 @@ recognition (from Two to One), which adaptively considers both visual and lingui
 ## Updates
 ```bash
 2021/10/9 We upload the code, datasets, and trained models.
+2021/10/9 Fix a bug in cfs_LF_1.py.
 ```
 ## Requirements
 ```bash
