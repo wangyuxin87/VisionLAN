@@ -111,14 +111,14 @@ The LMDB dataset is available in [BaiduYun](https://pan.baidu.com/s/1YOIQ0z7j2Qp
 ### Language-free (LF) process
 You can follow this implementation to train your own vision model.
 
-Step 1: We first train the vision model without MLM.
+Step 1 (LF_1): We first train the vision model without MLM.
 
 ```bash 
    CUDA_VISIBLE_DEVICES=0,1,2,3 python train_LF_1.py
 ```
  We provide our trained LF_1 model in [BaiduYun](https://pan.baidu.com/s/1QNMSXFB2MFLIaCP0_0Va7Q) (password:avs5) and [RuiKe](https://rec.ustc.edu.cn/share/42167c40-28c5-11ec-86bc-1be5441a39ac) (password:qwzn))
 
-Step 2: We finetune the MLM with vision model.
+Step 2 (LF_2): We finetune the MLM with vision model.
 
 ```bash 
    CUDA_VISIBLE_DEVICES=0,1,2,3 python train_LF_2.py
