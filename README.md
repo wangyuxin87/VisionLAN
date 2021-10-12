@@ -110,7 +110,7 @@ The LMDB dataset is available in [BaiduYun](https://pan.baidu.com/s/1YOIQ0z7j2Qp
 
 ### Language-aware (LA) process
 
-Use the mask map to guide the linguistic learning in the vision model. Download (our trained [vision model(BaiduYun)](https://pan.baidu.com/s/1zv-kKZGREjScW6p2dSwcXw) (password:04jg) or [RuiKe](https://rec.ustc.edu.cn/share/84a19b50-28c5-11ec-87c6-35ad826f4060) (password:v67q)) and put it in /output/LF_2/LF_2.pth.
+Use the mask map to guide the linguistic learning in the vision model. Download (our trained [vision model(BaiduYun)](https://pan.baidu.com/s/1zv-kKZGREjScW6p2dSwcXw) (password:04jg) or [RuiKe](https://rec.ustc.edu.cn/share/84a19b50-28c5-11ec-87c6-35ad826f4060) (password:v67q))m and put it in /output/LF_2/LF_2.pth.
 
 Then
 ```bash 
@@ -127,7 +127,7 @@ Step 1: We first train the vision model without MLM.
 ```bash 
    CUDA_VISIBLE_DEVICES=0,1,2,3 python train_LF_1.py
 ```
- We provide (our trained LF_1 model [BaiduYun](https://pan.baidu.com/s/1QNMSXFB2MFLIaCP0_0Va7Q) (password:avs5) or [RuiKe](https://rec.ustc.edu.cn/share/42167c40-28c5-11ec-86bc-1be5441a39ac) (password:qwzn))
+ We provide our trained LF_1 model in [BaiduYun](https://pan.baidu.com/s/1QNMSXFB2MFLIaCP0_0Va7Q) (password:avs5) and [RuiKe](https://rec.ustc.edu.cn/share/42167c40-28c5-11ec-86bc-1be5441a39ac) (password:qwzn))
 
 Step 2: We finetune the MLM with vision model.
 
