@@ -110,7 +110,7 @@ The LMDB dataset is available in [BaiduYun](https://pan.baidu.com/s/1YOIQ0z7j2Qp
 
 ### Language-aware (LA) process
 
-Use the mask map to guide the linguistic learning in the vision model. Download (our trained [vision model(BaiduYun)](https://pan.baidu.com/s/1zv-kKZGREjScW6p2dSwcXw) (password:04jg) or [RuiKe](https://rec.ustc.edu.cn/share/84a19b50-28c5-11ec-87c6-35ad826f4060) (password:v67q)), and put it in /output/LF_2/LF_2.pth.
+Use the mask map to guide the linguistic learning in the vision model. Download (our trained [vision+MLM (BaiduYun)](https://pan.baidu.com/s/1zv-kKZGREjScW6p2dSwcXw) (password:04jg) or [RuiKe](https://rec.ustc.edu.cn/share/84a19b50-28c5-11ec-87c6-35ad826f4060) (password:v67q)), and put it in /output/LF_2/LF_2.pth.
 
 Then
 ```bash 
