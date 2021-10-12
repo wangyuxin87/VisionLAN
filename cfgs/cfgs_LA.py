@@ -60,7 +60,7 @@ net_cfgs = {
         'input_shape': [3, 64, 256], # C x H x W
     },
 
-    'init_state_dict': './output/LF_2/best_acc_M.pth',
+    'init_state_dict': './output/LF_2/LF_2.pth',
 }
 optimizer_cfgs = {
     'optimizer_0': optim.Adam,
