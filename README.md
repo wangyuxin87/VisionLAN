@@ -127,7 +127,7 @@ Step 1: We first train the vision model without MLM.
 ```bash 
    CUDA_VISIBLE_DEVICES=0,1,2,3 python train_LF_1.py
 ```
- We provide (our trained [LF_1 model(BaiduYun)](https://pan.baidu.com/s/1QNMSXFB2MFLIaCP0_0Va7Q) (password:avs5) or [RuiKe](https://rec.ustc.edu.cn/share/42167c40-28c5-11ec-86bc-1be5441a39ac) (password:qwzn))
+ We provide (our trained LF_1 model [BaiduYun](https://pan.baidu.com/s/1QNMSXFB2MFLIaCP0_0Va7Q) (password:avs5) or [RuiKe](https://rec.ustc.edu.cn/share/42167c40-28c5-11ec-86bc-1be5441a39ac) (password:qwzn))
 
 Step 2: We finetune the MLM with vision model.
 
