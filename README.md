@@ -43,7 +43,7 @@ We have upload these LMDB datasets in [RuiKe](https://rec.ustc.edu.cn/share/2fad
 
 ### Testing sets 
 
-Evaluation datasets, LMDB datasets can be downloaded from [BaiduYun](https://pan.baidu.com/s/1sUHgM982YiMf9kmtnhfirg) (password:fjyy) or [RuiKe](https://rec.ustc.edu.cn/share/13b93140-28c2-11ec-868b-a1df0b427dd9)
+Evaluation datasets, LMDB datasets can be downloaded from [BaiduYun](https://pan.baidu.com/s/1sUHgM982YiMf9kmtnhfirg) (password:fjyy) or [RuiKe](https://rec.ustc.edu.cn/share/942341e0-2d60-11ec-8f45-89a3d3360036)(password:q8w0)
 ```bash 
 IIIT5K Words (IIIT5K)
 ICDAR 2013 (IC13)
