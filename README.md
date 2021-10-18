@@ -143,10 +143,11 @@ Tips: In LA process, model with loss (Loss VisionLAN) higher than 0.3 and the tr
 ## Citation
 If you find our method useful for your reserach, please cite
 ```bash 
- @article{wang2021two,
+@inproceedings{wang2021two,
   title={From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network},
   author={Wang, Yuxin and Xie, Hongtao and Fang, Shancheng and Wang, Jing and Zhu, Shenggao and Zhang, Yongdong},
-  journal={ICCV},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={14194--14203},
   year={2021}
 }
  ```
