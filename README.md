@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 [MJSynth](https://www.robots.ox.ac.uk/~vgg/data/text/) We use [tool](https://github.com/FangShancheng/ABINet/blob/main/tools/create_lmdb_dataset.py) to convert images into LMDB dataset. (We only use training set in this implementation)
 
-We have upload these LMDB datasets in [RuiKe](https://rec.ustc.edu.cn/share/2fad9400-28b3-11ec-8047-c76e50c198dd) (password:x6si).
+We have upload these LMDB datasets in [RuiKe](https://rec.ustc.edu.cn/share/2fad9400-28b3-11ec-8047-c76e50c198dd) (password:x6si) or [BaiduYun](https://pan.baidu.com/s/1_2dqqxW1vDL9t3B-jlAYRw)(password:z0r5)
 
 ### Testing sets 
 
