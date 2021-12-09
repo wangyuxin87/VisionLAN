@@ -87,7 +87,7 @@ Examples of the visualization of mask_c:
 ```bash 
    CUDA_VISIBLE_DEVICES=0 python visualize.py
 ```
-You can modify the 'mask_id' in cfgs/cfgs_visualize to change the mask position for visualization.
+You can modify the 'mask_id' in cfgs/cfgs_visualize to change the P for visualization.
 
 ### Results on OST datasets 
 Occlusion Scene Text (OST) dataset is proposed to reflect the ability for recognizing cases with missing visual cues. This dataset is collected from 6
