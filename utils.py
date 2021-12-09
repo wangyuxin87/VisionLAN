@@ -105,4 +105,8 @@ class Attention_AR_counter():
 
         self.clear()
         return best_acc, change
+    
+    def convert(self, output, out_length):
+        prdt_texts, prdt_prob = self.de.decode(output, out_length)
+        return prdt_texts
 
