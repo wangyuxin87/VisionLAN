@@ -142,7 +142,7 @@ if __name__ == '__main__':
             target, label_flatten, target_res, target_sub, label_flatten_res = target.cuda(), label_flatten.cuda(), target_res.cuda(), target_sub.cuda(), label_flatten_res.cuda()
             label_flatten_sub, label_id = label_flatten_sub.cuda(), label_id.cuda()
             # prediction
-            text_pre, test_rem, text_mas, att_mask_sub = model(data, label_id, cfgs.global_cfgs['step'])
+            text_pre, text_rem, text_mas, att_mask_sub = model(data, label_id, cfgs.global_cfgs['step'])
             # loss_calculation
             if cfgs.global_cfgs['step'] == 'LF_1':
                 text_pre = _flatten(text_pre, length)
@@ -152,14 +152,14 @@ if __name__ == '__main__':
                 loss = loss_ori
             else:
                 text_pre = _flatten(text_pre, length)
-                test_rem = _flatten(test_rem, length_res)
+                text_rem = _flatten(text_rem, length_res)
                 text_mas = _flatten(text_mas, length_sub)
                 pre_ori, label_ori = train_acc_counter.add_iter(text_pre, length.long(), length, label)
-                pre_rem, label_rem = train_acc_counter_rem.add_iter(test_rem, length_res.long(), length_res, label_res)
+                pre_rem, label_rem = train_acc_counter_rem.add_iter(text_rem, length_res.long(), length_res, label_res)
                 pre_sub, label_sub = train_acc_counter_sub.add_iter(text_mas, length_sub.long(), length_sub, label_sub)
 
                 loss_ori = criterion_CE(text_pre, label_flatten)
-                loss_res = criterion_CE(test_rem, label_flatten_res)
+                loss_res = criterion_CE(text_rem, label_flatten_res)
                 loss_mas = criterion_CE(text_mas, label_flatten_sub)
                 loss = loss_ori + loss_res * ratio_res + loss_mas * ratio_sub
                 loss_ori_show += loss_res

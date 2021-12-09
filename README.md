@@ -13,6 +13,8 @@ recognition (from Two to One), which adaptively considers both visual and lingui
 ## Updates
 ```bash
 2021/10/9 We upload the code, datasets, and trained models.
+2021/10/9 Fix a bug in cfs_LF_1.py.
+2021/10/12 Correct the typo in train.py
 ```
 ## Requirements
 ```bash
@@ -37,11 +39,11 @@ pip install -r requirements.txt
 
 [MJSynth](https://www.robots.ox.ac.uk/~vgg/data/text/) We use [tool](https://github.com/FangShancheng/ABINet/blob/main/tools/create_lmdb_dataset.py) to convert images into LMDB dataset. (We only use training set in this implementation)
 
-We have upload these LMDB datasets in [RuiKe](https://rec.ustc.edu.cn/share/2fad9400-28b3-11ec-8047-c76e50c198dd) (password:x6si).
+We have upload these LMDB datasets in [RuiKe](https://rec.ustc.edu.cn/share/2fad9400-28b3-11ec-8047-c76e50c198dd) (password:x6si) or [BaiduYun](https://pan.baidu.com/s/1_2dqqxW1vDL9t3B-jlAYRw)(password:z0r5)
 
 ### Testing sets 
 
-Evaluation datasets, LMDB datasets can be downloaded from [BaiduYun](https://pan.baidu.com/s/1sUHgM982YiMf9kmtnhfirg) (password:fjyy) or [RuiKe](https://rec.ustc.edu.cn/share/13b93140-28c2-11ec-868b-a1df0b427dd9)
+Evaluation datasets, LMDB datasets can be downloaded from [BaiduYun](https://pan.baidu.com/s/1sUHgM982YiMf9kmtnhfirg) (password:fjyy) or [RuiKe](https://rec.ustc.edu.cn/share/942341e0-2d60-11ec-8f45-89a3d3360036)(password:q8w0)
 ```bash 
 IIIT5K Words (IIIT5K)
 ICDAR 2013 (IC13)
@@ -81,7 +83,7 @@ CUDA_VISIBLE_DEVICES=0 python eval.py
 
 ### Visualize character-wise mask map
 Examples of the visualization of mask_c:
-![image](https://github.com/wangyuxin87/ContourNet/blob/master/demo/display.png)
+![image](https://github.com/wangyuxin87/VisionLAN/blob/main/examples/mask_c.png)
 ```bash 
    CUDA_VISIBLE_DEVICES=0 python visualize.py
 ```
@@ -93,9 +95,10 @@ benchmarks (IC13, IC15, IIIT5K, SVT, SVTP and CT) containing 4832 images. Images
 and heavy degrees mean that we occlude the character using one or two lines. For each image, we randomly choose one degree to only cover one character.
 
 Examples of images in OST dataset:
-![image](https://github.com/wangyuxin87/ContourNet/blob/master/demo/display.png)
+![image](https://github.com/wangyuxin87/VisionLAN/blob/main/examples/OST_weak.png)
+![image](https://github.com/wangyuxin87/VisionLAN/blob/main/examples/OST_heavy.png)
 
-|        Methods       	           |        IIIT5K       	| IC13       	| SVT        	|
+|        Methods       	           |        Average       	| Weak       	| Heavy        	|
 |:------------------:              |:------------------:	|:---------:	|:------:   	|
 |        Paper       	           |         60.3           |    70.3   	|     50.3   	|
 |        This implementation       | 	     60.3           |    70.8  	    |     49.8   	|
@@ -104,28 +107,33 @@ The LMDB dataset is available in [BaiduYun](https://pan.baidu.com/s/1YOIQ0z7j2Qp
 
 ## Training
 4 2080Ti GPUs are used in this implementation. 
-### Language-free (LF) process
 
-Step 1: We first train the vision model without MLM. (Our trained [LF_1 model(BaiduYun)](https://pan.baidu.com/s/1QNMSXFB2MFLIaCP0_0Va7Q) (password:avs5) or [RuiKe](https://rec.ustc.edu.cn/share/42167c40-28c5-11ec-86bc-1be5441a39ac) (password:qwzn))
+### Language-free (LF) process
+You can follow this implementation to train your own vision model.
+
+Step 1 (LF_1): We first train the vision model without MLM.
 
 ```bash 
    CUDA_VISIBLE_DEVICES=0,1,2,3 python train_LF_1.py
 ```
+ We provide our trained LF_1 model in [BaiduYun](https://pan.baidu.com/s/1QNMSXFB2MFLIaCP0_0Va7Q) (password:avs5) and [RuiKe](https://rec.ustc.edu.cn/share/42167c40-28c5-11ec-86bc-1be5441a39ac) (password:qwzn))
 
-Step 2: We finetune the MLM with vision model (Our trained [LF_2 model(BaiduYun)](https://pan.baidu.com/s/1zv-kKZGREjScW6p2dSwcXw) (password:04jg) or [RuiKe](https://rec.ustc.edu.cn/share/84a19b50-28c5-11ec-87c6-35ad826f4060) (password:v67q))
+Step 2 (LF_2): We finetune the MLM with vision model.
 
 ```bash 
    CUDA_VISIBLE_DEVICES=0,1,2,3 python train_LF_2.py
 ```
+
 ### Language-aware (LA) process
 
-Use the mask map to guide the linguistic learning in the vision model.
+Download our trained LF_2 model [(BaiduYun)](https://pan.baidu.com/s/1zv-kKZGREjScW6p2dSwcXw) (password:04jg) or [RuiKe](https://rec.ustc.edu.cn/share/84a19b50-28c5-11ec-87c6-35ad826f4060) (password:v67q), and put it in /output/LF_2/LF_2.pth.
 
+Then
 ```bash 
    CUDA_VISIBLE_DEVICES=0,1,2,3 python train_LA.py
 ```
 
-Tip: In LA process, model with loss (Loss VisionLAN) higher than 0.3 and the training accuracy (Accuracy) lower than 91.0 after the first 200 training iters obains better performance. 
+Tips: In LA process, model with loss (Loss VisionLAN) higher than 0.3 and the training accuracy (Accuracy) lower than 91.0 after the first 200 training iters obains better performance. 
 
 # Improvement
 1. Mask id randomly generated according to the max length can not well adapt to the occlusion of long text. Thus, evenly sampled mask id can further improve the performance of MLM. 
@@ -135,10 +143,11 @@ Tip: In LA process, model with loss (Loss VisionLAN) higher than 0.3 and the tra
 ## Citation
 If you find our method useful for your reserach, please cite
 ```bash 
- @article{wang2021two,
+@inproceedings{wang2021two,
   title={From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network},
   author={Wang, Yuxin and Xie, Hongtao and Fang, Shancheng and Wang, Jing and Zhu, Shenggao and Zhang, Yongdong},
-  journal={ICCV},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={14194--14203},
   year={2021}
 }
  ```
